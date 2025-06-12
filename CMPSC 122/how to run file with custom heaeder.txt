@@ -1,0 +1,2 @@
+"g++ *.cpp" in the terminal, without quotation
+"./a.exe"

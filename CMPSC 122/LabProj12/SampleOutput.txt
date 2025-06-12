@@ -1,0 +1,40 @@
+Please enter the number of loops: 9
+
+============================ Algorithm Blue ============================
+
+Preparation Time: 0.0020s
+[ 0] Maximum contiguous subsequence sum (array size =       500):    341
+Elapsed Time: 0.0010s
+------------------------------------------------------------------------
+Preparation Time: 0.0070s
+[ 1] Maximum contiguous subsequence sum (array size =      1000):    414
+Elapsed Time: 0.0020s
+------------------------------------------------------------------------
+Preparation Time: 0.0110s
+[ 2] Maximum contiguous subsequence sum (array size =      2000):   1056
+Elapsed Time: 0.0050s
+------------------------------------------------------------------------
+Preparation Time: 0.0230s
+[ 3] Maximum contiguous subsequence sum (array size =      4000):   2439
+Elapsed Time: 0.0200s
+------------------------------------------------------------------------
+Preparation Time: 0.0490s
+[ 4] Maximum contiguous subsequence sum (array size =      8000):   5971
+Elapsed Time: 0.0890s
+------------------------------------------------------------------------
+Preparation Time: 0.1470s
+[ 5] Maximum contiguous subsequence sum (array size =     16000):   5349
+Elapsed Time: 0.3070s
+------------------------------------------------------------------------
+Preparation Time: 0.4630s
+[ 6] Maximum contiguous subsequence sum (array size =     32000):   6257
+Elapsed Time: 1.2850s
+------------------------------------------------------------------------
+Preparation Time: 1.7580s
+[ 7] Maximum contiguous subsequence sum (array size =     64000):  13650
+Elapsed Time: 5.1640s
+------------------------------------------------------------------------
+Preparation Time: 6.9370s
+[ 8] Maximum contiguous subsequence sum (array size =    128000):  10443
+Elapsed Time: 20.4950s
+------------------------------------------------------------------------

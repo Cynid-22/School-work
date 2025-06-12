@@ -1,0 +1,12 @@
+Alex 70
+Ben 75
+Bob 70
+Bruce 85
+Carte 75
+Charles 90
+Eddy 35
+Luke 85
+Mike 80
+Patric 30
+Peter 95
+Pique 55
