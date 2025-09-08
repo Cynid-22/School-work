@@ -1,9 +1,9 @@
 public class Main {
-    public static void main(String[] args) {
-        System.out.printf("Hello and welcome!\n");
-
-        for (int i = 1; i <= 5; i++) {
-            System.out.println("i = " + i);
-        }
+    private int a;
+    private  int b;
+    public static void main (String[] args)
+    {
+//        System.out.printf("%5.25f", 23.5);
+        System.out.println("I like \"dogs\" and love \"cats\".");
     }
 }
