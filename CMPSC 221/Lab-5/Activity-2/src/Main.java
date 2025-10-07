@@ -8,9 +8,9 @@ public class Main {
 
     public static void main(String[] args) {
         // 1. Create instances of Students
-        Student student1 = new Student("1001", "Alice");
-        Student student2 = new Student("1002", "Bob");
-        Student student3 = new Student("1003", "Charlie");
+        Student student1 = new Student("1001", "A");
+        Student student2 = new Student("1002", "B");
+        Student student3 = new Student("1003", "C");
 
         // 2. Create instances of Courses
         Course course1 = new Course("CMPSC221", "OOP with Web-Based Apps");
