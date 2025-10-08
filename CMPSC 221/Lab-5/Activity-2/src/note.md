@@ -1,0 +1,7 @@
+- This is the wrong way of implementing it
+- You need one more class called StudentCourse to link the many to many connection
+  - In this StudentCourse class
+  - put both of the student and courses into a list
+    - List<student>  list1;
+    - List<courses>  list2;
+  - NO LIST within courses or student class
