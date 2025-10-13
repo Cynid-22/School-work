@@ -8,7 +8,7 @@ import javax.swing.event.ListSelectionListener;
 public class CourseEnrollmentGUI implements ActionListener {
     private static JTextField name;
     private static JLabel label1, label2, label3;
-    private static JButton button1, button2, button3;
+    private static JButton button1, button2, button3, button4; // add button 4 for "selected major"
     private static JList<String> listBox;
     private static JComboBox<String> combobox;
     private static int indexList;
@@ -41,27 +41,30 @@ public class CourseEnrollmentGUI implements ActionListener {
         JButton button1 = new JButton("Add Course");
         JButton button2 = new JButton("Total Enrolled Courses");
         JButton button3 = new JButton("Drop Course");
+        JButton button4 = new JButton("Selected Major");
         button1.addActionListener(mylist);
         button2.addActionListener(mylist);
         button3.addActionListener(mylist);
+        button4.addActionListener(mylist);
 //JList<String> listBox = new JList<>(numbers);
         model.addElement("Sweng-311");
         model.addElement("Sweng-411");
         model.addElement("CMPSC-221");
-        JComboBox combobox = new JComboBox(majors);
+        combobox = new JComboBox(majors);                    // remove the declaration of a new combobox here, and used the one alr declared
         combobox.setVisible(true);
         JList<String> listBox = new JList<>(model);
         listBox.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        listBox.setVisibleRowCount(-1); // to keep all values visible
+        listBox.setVisibleRowCount(3);                       // replace from -1 to 3
         listBox.setSize(250, 250);
         listBox.setVisible(true);
-        listBox.setSelectedIndex(3);
+        listBox.setSelectedIndex(0);                         // replace from 3 to 0
         listBox.addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
                 JList list = (JList)e.getSource();
                 indexList=((JList<?>) e.getSource()).getSelectedIndex();
-                JOptionPane.showMessageDialog(frame,list.getSelectedValue());
+                if (list.getSelectedValue() != null)        // add this condition to avoid empty window when dropping course
+                    JOptionPane.showMessageDialog(frame,list.getSelectedValue());
             }
         });
         gbc.fill = GridBagConstraints.HORIZONTAL;
@@ -72,7 +75,8 @@ public class CourseEnrollmentGUI implements ActionListener {
         gbc.gridx = 0; gbc.gridy = 2;
         panel.add(label2, gbc);
         gbc.gridx = 0; gbc.gridy = 3;
-        panel.add(listBox, gbc);
+        JScrollPane scrollPane = new JScrollPane(listBox); // replace
+        panel.add(scrollPane, gbc);                        // replace
         gbc.gridx = 0; gbc.gridy = 7;
         panel.add(label3, gbc);
         gbc.gridx = 0; gbc.gridy = 9;
@@ -81,6 +85,8 @@ public class CourseEnrollmentGUI implements ActionListener {
         panel.add(button2, gbc);
         gbc.gridx = 0; gbc.gridy = 12;
         panel.add(button3, gbc);
+        gbc.gridx = 0; gbc.gridy = 13;                    // pos for button 4
+        panel.add(button4, gbc);
         frame.getContentPane().add(panel, BorderLayout.CENTER);
     }
     public void actionPerformed(ActionEvent e) {
@@ -95,9 +101,12 @@ public class CourseEnrollmentGUI implements ActionListener {
             int c = model.getSize();
             JOptionPane.showMessageDialog(null, "Total Courses are: " + c);
         } else if (command.equals("Drop Course")) {
+            String droppedCourse = model.get(indexList);  // Change these 3 lines
             model.removeElementAt(indexList);
-            int c = model.getSize();
-            JOptionPane.showMessageDialog(null, "After Deletion " + c);
+            JOptionPane.showMessageDialog(null, "You have dropped " + droppedCourse);
+        } else if (command.equals("Selected Major")) {    // Add this for button 4
+            String selectedMajor = (String) combobox.getSelectedItem();
+            JOptionPane.showMessageDialog(null, "Your Major is " + selectedMajor);
         }
     }
 }

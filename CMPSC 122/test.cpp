@@ -1,23 +1,34 @@
 #include <iostream>
 #include <iomanip>
-#include <string>
+#include <cmath>
+
 using namespace std;
 
 int main()
 {
-    string  item1, item2, item3, item4;
-    double price1, price2, price3, price4, total;
+    int row = 13, col = 13;
+    int padding = log10(row*col)+2;
 
+    cout << setw(padding) << " ";
+    for (int i = 1; i <= col; i++)
+    {
+        cout << setw(padding) << i;
+    }
+    cout << "\n";
 
-    cout << "Thank you for your business!\n";
-    cout << endl << endl << endl;
-    cout << fixed;
-    cout << setprecision(2);
-    cout << "Sub-total:" << setw(11) << right   << "$" << endl;
-    cout << "+Sales Tax:" << setw(10)  << "$" << endl;
-    cout << "-Discount:" << setw(11)   << "$" << endl;
-    cout << "+Shipping:" << setw(11)   << "$" << endl;
-    cout << "=Total:" << setw(14)      << "$" << endl;
+    for (int i = 1; i <= row; ++i) {
+        cout << setw(padding) << i;
+        for (int j = i; j <= i*col; j+=i) {
+            cout << setw(padding) << j;
+        }
+        cout << "\n";
+    }
+    
 
     return 0;
 }
+
+/*
+Output:
+
+*/

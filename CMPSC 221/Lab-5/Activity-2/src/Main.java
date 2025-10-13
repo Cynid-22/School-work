@@ -8,9 +8,9 @@ public class Main {
 
     public static void main(String[] args) {
         // 1. Create instances of Students
-        Student student1 = new Student("1001", "A");
-        Student student2 = new Student("1002", "B");
-        Student student3 = new Student("1003", "C");
+        Student student1 = new Student("1001", "Alfa");
+        Student student2 = new Student("1002", "Bravo");
+        Student student3 = new Student("1003", "Charlie");
 
         // 2. Create instances of Courses
         Course course1 = new Course("CMPSC221", "OOP with Web-Based Apps");
@@ -18,13 +18,13 @@ public class Main {
         Course course3 = new Course("MATH140", "Calculus I");
 
         // 3. Enroll students in courses (establishing the many-to-many links)
-        enroll(student1, course1); // Alice takes CMPSC221
-        enroll(student1, course2); // Alice also takes IST210
+        enroll(student1, course1); // A takes CMPSC221
+        enroll(student1, course2); // A also takes IST210
 
-        enroll(student2, course1); // Bob takes CMPSC221
-        enroll(student2, course3); // Bob also takes MATH140
+        enroll(student2, course1); // B takes CMPSC221
+        enroll(student2, course3); // B also takes MATH140
 
-        enroll(student3, course2); // Charlie takes IST210
+        enroll(student3, course2); // C takes IST210
 
         System.out.println("--- Enrollment Details by Student ---");
         student1.displayCourses();
