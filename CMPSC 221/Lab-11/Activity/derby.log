@@ -1,0 +1,19 @@
+----------------------------------------------------------------
+Sun Nov 09 21:17:35 EST 2025:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.17.1.0 - (1913217): instance a816c00e-019a-6b8d-eefc-00000e9163b0 
+on database directory C:\Users\nguye\OneDrive\Desktop\Git-temp\School-work\CMPSC 221\Lab-11\Activity\Students with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@76ed5528 
+Loaded from file:/C:/Program%20Files/Eclipse%20Adoptium/jdk-21.0.3.9-hotspot/db-derby-10.17.1.0-bin/lib/derby.jar
+java.vendor=Eclipse Adoptium
+java.runtime.version=21.0.3+9-LTS
+user.dir=C:\Users\nguye\OneDrive\Desktop\Git-temp\School-work\CMPSC 221\Lab-11\Activity
+os.name=Windows 11
+os.arch=amd64
+os.version=10.0
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Sun Nov 09 21:18:22 EST 2025: Shutting down Derby engine
+----------------------------------------------------------------
+Sun Nov 09 21:18:22 EST 2025:
+Shutting down instance a816c00e-019a-6b8d-eefc-00000e9163b0 on database directory C:\Users\nguye\OneDrive\Desktop\Git-temp\School-work\CMPSC 221\Lab-11\Activity\Students with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@76ed5528 
+----------------------------------------------------------------
