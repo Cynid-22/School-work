@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="derby">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../../../../../../../../Program Files/Eclipse Adoptium/jdk-21.0.3.9-hotspot/db-derby-10.17.1.0-bin/lib/derby.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../../../../../../../Program Files/Eclipse Adoptium/jdk-21.0.3.9-hotspot/db-derby-10.17.1.0-bin/lib/derbyshared.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../../../../../../../Program Files/Eclipse Adoptium/jdk-21.0.3.9-hotspot/db-derby-10.17.1.0-bin/lib/derbytools.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
