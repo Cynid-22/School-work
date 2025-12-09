@@ -23,10 +23,8 @@ public class RestaurantOwnerGUI extends JFrame {
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLayout(new BorderLayout());
 
-        // Add main window padding
         ((JPanel)this.getContentPane()).setBorder(PADDING);
 
-        // --- TOP PANEL ---
         JPanel top = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10)); // Added gap
 
         cbRest = new JComboBox<>();
@@ -42,7 +40,6 @@ public class RestaurantOwnerGUI extends JFrame {
 
         add(top, BorderLayout.NORTH);
 
-        // --- CENTER PANEL ---
         txtInfo = new JTextArea();
         txtInfo.setEditable(false);
         txtInfo.setBorder(BorderFactory.createTitledBorder("Restaurant Details"));
@@ -55,17 +52,13 @@ public class RestaurantOwnerGUI extends JFrame {
                 new JScrollPane(txtInfo),
                 new JScrollPane(txtList));
         splitPane.setDividerLocation(150);
-        // Add padding around split pane
         splitPane.setBorder(BorderFactory.createEmptyBorder(10, 0, 10, 0));
 
         add(splitPane, BorderLayout.CENTER);
 
-        // --- BOTTOM PANEL ---
-        // Use BorderLayout to separate Inputs from Button
-        JPanel bottom = new JPanel(new BorderLayout(0, 10)); // Gap between inputs and button
+        JPanel bottom = new JPanel(new BorderLayout(0, 10));
 
-        // Inputs Panel
-        JPanel inputPanel = new JPanel(new GridLayout(2, 2, 10, 10)); // Gaps between grid cells
+        JPanel inputPanel = new JPanel(new GridLayout(2, 2, 10, 10));
         inputPanel.add(new JLabel("Walk-in Time (HH:MM):"));
         txtWalkInTime = new JTextField();
         inputPanel.add(txtWalkInTime);
@@ -74,16 +67,14 @@ public class RestaurantOwnerGUI extends JFrame {
         txtWalkInCount = new JTextField();
         inputPanel.add(txtWalkInCount);
 
-        // Button Panel (To shrink the button)
         JPanel btnPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
         JButton btnCheck = new JButton("Check Walk-in");
-        btnCheck.setPreferredSize(new Dimension(150, 30)); // Set reasonable size
+        btnCheck.setPreferredSize(new Dimension(150, 30));
         btnPanel.add(btnCheck);
 
         bottom.add(inputPanel, BorderLayout.CENTER);
         bottom.add(btnPanel, BorderLayout.SOUTH);
 
-        // Logic
         btnCheck.addActionListener(e -> {
             DatabaseManager.RestaurantEntry entry = (DatabaseManager.RestaurantEntry) cbRest.getSelectedItem();
             if (entry == null) return;

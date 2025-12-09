@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Scanner;
 
 public class CustomerTextSim {
-    // Added ASK_PHONE_CANCEL state
     enum State { IDLE, ASK_NAME, ASK_PHONE, ASK_REST, SELECT_BRANCH, ASK_HEADCOUNT, ASK_TIME, CONFIRM, ASK_PHONE_CANCEL }
 
     private State state = State.IDLE;
@@ -18,7 +17,6 @@ public class CustomerTextSim {
     private String tempName;
     private String tempPhone;
 
-    // Updated to use ID
     private int tempRestId = -1;
     private String tempRestNameDisplay;
 
@@ -31,7 +29,6 @@ public class CustomerTextSim {
     private int targetTableCap;
     private int totalTargetTables;
 
-    // Store multiple branches if found
     private List<DatabaseManager.RestaurantEntry> foundBranches;
 
     public CustomerTextSim(DatabaseManager db) {
@@ -61,7 +58,6 @@ public class CustomerTextSim {
                     System.out.println("System: Please enter your name");
                     state = State.ASK_NAME;
                 } else if (lower.contains("cancel")) {
-                    // NEW: Switch to cancellation flow
                     System.out.println("System: Please enter your phone number to cancel");
                     state = State.ASK_PHONE_CANCEL;
                 } else {
@@ -69,11 +65,9 @@ public class CustomerTextSim {
                 }
                 break;
 
-            // NEW: Cancellation Logic
             case ASK_PHONE_CANCEL:
                 String[] resDetails = db.getReservationDetailsByPhone(input);
                 if (resDetails != null) {
-                    // resDetails = { RestaurantName, StartTime, EndTime }
                     db.deleteReservationByPhone(input);
                     System.out.println("System: Your reservation for " + resDetails[0] +
                             " from " + resDetails[1] + " to " + resDetails[2] +
@@ -106,13 +100,11 @@ public class CustomerTextSim {
                 if (foundBranches.isEmpty()) {
                     System.out.println("System: Restaurant not found. Try again.");
                 } else if (foundBranches.size() == 1) {
-                    // Only one found, proceed
                     tempRestId = foundBranches.get(0).id;
                     tempRestNameDisplay = foundBranches.get(0).name;
                     System.out.println("System: Please enter headcount, including children");
                     state = State.ASK_HEADCOUNT;
                 } else {
-                    // Multiple found!
                     System.out.println("System: Multiple locations found. Please enter the number of the one you want:");
                     for (int i = 0; i < foundBranches.size(); i++) {
                         System.out.println((i + 1) + ". " + foundBranches.get(i).name + " - " + foundBranches.get(i).location);

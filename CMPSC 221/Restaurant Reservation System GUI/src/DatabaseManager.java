@@ -9,7 +9,6 @@ public class DatabaseManager {
         initDB();
     }
 
-    // --- INNER CLASS FOR GUI/LISTS ---
     public static class RestaurantEntry {
         public int id;
         public String name;
@@ -48,7 +47,6 @@ public class DatabaseManager {
         }
     }
 
-    // --- Admin Features ---
     public void addRestaurant(String name, String loc) {
         String sql = "INSERT INTO Restaurants (Name, Location, OpenTime, CloseTime) VALUES (?, ?, '07:30', '22:00')";
         try (Connection conn = DriverManager.getConnection(DB_URL);
@@ -117,7 +115,6 @@ public class DatabaseManager {
         } catch (SQLException e) { e.printStackTrace(); }
     }
 
-    // --- Helper Getters ---
 
     public List<RestaurantEntry> getAllRestaurants() {
         List<RestaurantEntry> list = new ArrayList<>();
@@ -167,7 +164,6 @@ public class DatabaseManager {
         return sb.toString();
     }
 
-    // NEW: Used to auto-fill the edit boxes
     public String[] getRestaurantDetailsForEdit(int id) {
         try (Connection conn = DriverManager.getConnection(DB_URL);
              PreparedStatement pstmt = conn.prepareStatement("SELECT Name, Location, OpenTime, CloseTime FROM Restaurants WHERE ID = ?")) {
@@ -185,7 +181,6 @@ public class DatabaseManager {
         return null;
     }
 
-    // --- Reservation Logic ---
     public void addReservation(int restId, String custName, String phone, int headcount, String start, String end) {
         String sql = "INSERT INTO Reservations (RestID, CustomerName, Phone, HeadCount, StartTime, EndTime) VALUES (?, ?, ?, ?, ?, ?)";
         try (Connection conn = DriverManager.getConnection(DB_URL);
@@ -210,8 +205,6 @@ public class DatabaseManager {
         return false;
     }
 
-    // NEW: Get details for cancellation message
-    // Returns [RestaurantName, StartTime, EndTime] or null if not found
     public String[] getReservationDetailsByPhone(String phone) {
         String sql = "SELECT r.Name, res.StartTime, res.EndTime FROM Reservations res " +
                 "JOIN Restaurants r ON res.RestID = r.ID WHERE res.Phone = ?";
@@ -230,7 +223,6 @@ public class DatabaseManager {
         return null;
     }
 
-    // NEW: Delete reservation by phone
     public void deleteReservationByPhone(String phone) {
         try (Connection conn = DriverManager.getConnection(DB_URL);
              PreparedStatement pstmt = conn.prepareStatement("DELETE FROM Reservations WHERE Phone = ?")) {
@@ -265,7 +257,6 @@ public class DatabaseManager {
         return false;
     }
 
-    // --- TIME CALCULATION HELPERS ---
 
     public String[] getRestaurantHours(int restId) {
         try (Connection conn = DriverManager.getConnection(DB_URL);

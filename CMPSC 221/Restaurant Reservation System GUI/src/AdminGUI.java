@@ -30,7 +30,6 @@ public class AdminGUI extends JFrame {
         JTabbedPane tabs = new JTabbedPane();
         tabs.setBorder(PADDING);
 
-        // --- PANEL ONE ---
         JPanel p1 = new JPanel(new BorderLayout(5, 5));
         p1.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
         JPanel p1Top = new JPanel(new GridLayout(5, 1, 5, 5));
@@ -71,7 +70,6 @@ public class AdminGUI extends JFrame {
         p1.add(new JScrollPane(txtInfoP1), BorderLayout.CENTER);
 
 
-        // --- PANEL TWO ---
         JPanel p2 = new JPanel(new BorderLayout(5, 5));
         p2.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
         JPanel p2Form = new JPanel(new GridLayout(7, 2, 5, 5));
@@ -123,14 +121,12 @@ public class AdminGUI extends JFrame {
                 db.updateRestaurantDetails(restId, txtEditName.getText(), txtEditLoc.getText(), txtEditOpen.getText(), txtEditClose.getText());
 
                 refreshDropdowns();
-                // Re-select to keep focus
                 cbSelectP2.setSelectedItem(entry);
                 updateInfoBox(2);
                 JOptionPane.showMessageDialog(this, "Saved!");
             }
         });
 
-        // Save Button Styling
         JPanel p2ButtonWrapper = new JPanel(new FlowLayout(FlowLayout.CENTER));
         p2ButtonWrapper.add(btnSave);
         p2ButtonWrapper.setBorder(BorderFactory.createEmptyBorder(10, 0, 0, 0));
@@ -180,7 +176,6 @@ public class AdminGUI extends JFrame {
     private void loadEditFields() {
         updateInfoBox(2);
 
-        // AUTO-FILL LOGIC
         DatabaseManager.RestaurantEntry entry = (DatabaseManager.RestaurantEntry) cbSelectP2.getSelectedItem();
         if (entry != null) {
             String[] details = db.getRestaurantDetailsForEdit(entry.id);
@@ -190,7 +185,6 @@ public class AdminGUI extends JFrame {
                 txtEditOpen.setText(details[2]);
                 txtEditClose.setText(details[3]);
 
-                // Clear table fields so user knows they are for NEW input only
                 txtCap.setText("");
                 txtQty.setText("");
             }
